@@ -146,7 +146,7 @@ class Query:
             data = cur.fetchall()
             self._commit_if_needed(db_connection, no_transaction)
             col_names = [c[0] for c in cur.description]
-            if db_connection.module_name in ["sqlite3", "ibm_db", "ibm_db_dbi", "pyodbc", "jaydebeapi"]:
+            if db_connection.module_name in ["sqlite3", "ibm_db", "ibm_db_dbi", "pyodbc", "jaydebeapi","duckdb"]:
                 current_row_count = len(data)
             else:
                 current_row_count = cur.rowcount
